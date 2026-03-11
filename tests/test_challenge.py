@@ -5,7 +5,7 @@ The unit tests
 import json
 import os
 import tempfile
-from turtle import fd
+# from turtle import fd
 import unittest
 from unittest.mock import patch, MagicMock, call
 from fetcher import Downloader
@@ -88,3 +88,5 @@ class TestManifestPoller(unittest.TestCase):
     def test_already_downloaded_item_is_skipped(self, mock_publish, mock_get):
         pass
 
+if __name__ == "__main__":
+    unittest.main()
