@@ -1,8 +1,7 @@
 """
-The unit tests
+The unit tests for the ManifestPoller and StateStore classes. These tests cover the core functionality of downloading new items, skipping already downloaded items, handling updates, and managing state persistence. The tests use mocking to isolate the components and verify their behavior under controlled conditions.
 """
 
-import json
 import os
 import tempfile
 import unittest

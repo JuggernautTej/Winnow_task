@@ -11,10 +11,9 @@ It also hosts the actual "content files" so the downloader can fetch them.
 """
 
 import hashlib
-import io
-import time
 
-from flask import Flask, Response, jsonify, request, send_file
+
+from flask import Flask, Response, jsonify, request
 
 app = Flask(__name__)
 
