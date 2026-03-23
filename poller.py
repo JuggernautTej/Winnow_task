@@ -83,14 +83,14 @@ class ManifestPoller:
     
     def poll_once(self) -> None:
         """
-        Publice wrapper for the _poll_once method to allow for easier testing and manual triggering of the poller logic without having to wait for the next cycle of the persistent runner.
+        Public wrapper for the _poll_once method to allow for easier testing and manual triggering of the poller logic without having to wait for the next cycle of the persistent runner.
         """
         self._poll_once()
     
     # Private methods
     def _poll_once(self) -> None:
         """
-        
+        Performs a single poll of the manifest endpoint, processes the manifest if it has changed, and updates the local state accordingly.
         """
         manifest = self._fetch_manifest()
         if manifest is None:

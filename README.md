@@ -103,7 +103,7 @@ python  stub_server.py
 
   
 
-### 3. Start the sync service (in another terminal)
+### 3. Start the sync service (in another terminal) with default variables
 
   
 
@@ -155,6 +155,7 @@ Downloaded files appear in `/tmp/winnow/`.
 
 ## Running the tests
 
+### Unit tests
   
 
 ```bash
@@ -169,6 +170,20 @@ python  -m  pytest  tests/  -v
 
 ---
 
+### Service Function Simulation
+  
+
+```bash
+
+source  venv/bin/activate
+
+POLL_INTERVAL=5 python  main.py
+
+```
+
+  
+
+---
   
 
 ## Configuration
