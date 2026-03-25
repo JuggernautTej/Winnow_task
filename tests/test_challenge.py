@@ -5,6 +5,7 @@ The unit tests for the ManifestPoller and StateStore classes. These tests cover 
 import os
 import tempfile
 import unittest
+import requests
 from unittest.mock import patch, MagicMock, call
 from fetcher import Downloader
 from poller import ManifestPoller
@@ -210,9 +211,11 @@ class TestManifestPoller(unittest.TestCase):
     @patch("poller.publish")
     def test_network_error_does_not_crash_service(self, mock_publish, mock_get):
         """Test that a network error does not crash the service."""
+        mock_get.side_effect = requests.RequestException("network down")
         poller = _make_poller()
-        with self.assertRaises(Exception):
-            poller.poll_once()
+        poller.poll_once()
+        poller._downloader.download.assert_not_called()
+        mock_publish.assert_not_called()
 
     @patch("poller.requests.get")
     def test_etag_sent_on_subsequent_requests(self, mock_get):
